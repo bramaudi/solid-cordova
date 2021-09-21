@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "description": "Solid boilerplate for building Cordova app",
   "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "start": "parcel",
-    "build": "parcel build"
+    "start": "parcel --port 3000",
+    "build": "rm -rf dist && parcel build --no-source-maps --no-content-hash --public-url ./ && node build.js"
   },
   "keywords": [],
   "author": "Brama Udi<bramaudi.al@gmail.com>",
