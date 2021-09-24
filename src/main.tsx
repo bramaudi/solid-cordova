@@ -1,17 +1,21 @@
 // @ts-ignore
-import routes from "../scripts/routes" // <- auto-generated
+import Router from "../scripts/router" // <- auto-generated
 import "../scripts/tailwind.css" // <- auto-generated
 import { render } from "solid-js/web"
-import { Router, useRoutes, hashIntegration } from "solid-app-router"
-import NavLinks from "./components/NavLinks"
+import { onMount, createSignal } from "solid-js"
+import { fetchData } from "./api"
 
 const App = () => {
-	const Routes = useRoutes(routes)
+	const [data, setData] = createSignal()
+	onMount(async () => {
+		fetchData('/npc/boss/king-slime.json', setData)
+	})
 	return (
-		<Router source={hashIntegration()}>
-			<NavLinks />
-			<Routes />
-		</Router>
+		<>
+			<h1>{process.env.NODE_ENV}</h1>
+			{JSON.stringify(data())}
+			{Router()}
+		</>
 	)
 }
 

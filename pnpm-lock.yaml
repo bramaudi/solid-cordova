@@ -10,14 +10,14 @@ specifiers:
   babel-preset-solid: ^1.1.5
   glob: ^7.2.0
   npm-run-all: ^4.1.5
+  page: ^1.11.6
   parcel: ^2.0.0-rc.0
   postcss: ^8.3.7
-  solid-app-router: ^0.1.5
   solid-js: ^1.1.5
   tailwindcss: ^2.2.15
 
 dependencies:
-  solid-app-router: 0.1.5_solid-js@1.1.5
+  page: 1.11.6
   solid-js: 1.1.5
 
 devDependencies:
@@ -3740,6 +3740,10 @@ packages:
       is-docker: 2.2.1
     dev: true
 
+  /isarray/0.0.1:
+    resolution: {integrity: sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=}
+    dev: false
+
   /isarray/1.0.0:
     resolution: {integrity: sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=}
     dev: true
@@ -4397,6 +4401,12 @@ packages:
     resolution: {integrity: sha1-hUNzx/XCMVkU/Jv8a9gjj92h7Cc=}
     dev: true
 
+  /page/1.11.6:
+    resolution: {integrity: sha512-P6e2JfzkBrPeFCIPplLP7vDDiU84RUUZMrWdsH4ZBGJ8OosnwFkcUkBHp1DTIjuipLliw9yQn/ZJsXZvarsO+g==}
+    dependencies:
+      path-to-regexp: 1.2.1
+    dev: false
+
   /pako/1.0.11:
     resolution: {integrity: sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==}
     dev: true
@@ -4497,6 +4507,12 @@ packages:
   /path-parse/1.0.7:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
     dev: true
+
+  /path-to-regexp/1.2.1:
+    resolution: {integrity: sha1-szcFwUAjTYc8hyHHuf2LVB7Tr/k=}
+    dependencies:
+      isarray: 0.0.1
+    dev: false
 
   /path-to-regexp/2.2.1:
     resolution: {integrity: sha512-gu9bD6Ta5bwGrrU8muHzVOBFFREpp2iRkVfhBJahwJ6p6Xw20SjT0MxLnwkjOibQmGSYhiUnf2FLe7k+jcFmGQ==}
@@ -5500,14 +5516,6 @@ packages:
       source-map-resolve: 0.5.3
       use: 3.1.1
     dev: true
-
-  /solid-app-router/0.1.5_solid-js@1.1.5:
-    resolution: {integrity: sha512-8wxpBP1pOea4rQFba1NH6uyPFBvqcSxHB4i9dSuoQw5OABgecvrFfAe+0TbYCP/7OhJ9RcEfsej+LBEdE/YS0Q==}
-    peerDependencies:
-      solid-js: ^1.0.0
-    dependencies:
-      solid-js: 1.1.5
-    dev: false
 
   /solid-js/1.1.5:
     resolution: {integrity: sha512-cwMNe1U/1bqCTMco2za6LDU66jDn/57m5kfrDUhW3ls9YIbaREdktqPFGULrill22qyoFDngEg5hgm6a6vf6wg==}

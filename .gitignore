@@ -1,5 +1,7 @@
 node_modules
 .parcel-cache
 dist
-scripts/routes.ts
-scripts/tailwind.css
+
+# Ignore all files except .js
+scripts/*
+!scripts/*.js

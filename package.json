@@ -5,14 +5,17 @@
   "source": "src/index.html",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
+    "copy-data": "cp -r data dist/data",
     "build:dist": "rm -rf dist && parcel build --no-source-maps --no-content-hash --public-url ./",
     "build:css": "tailwindcss -o scripts/tailwind.css",
+    "build:router": "node scripts/router.js",
     "prepare:dist": "node scripts/build.js",
-    "dev:router": "node scripts/generate.js",
+    "dev:api": "node scripts/api.js",
+    "dev:router": "node scripts/router.js --watch",
     "dev:css": "tailwindcss -o scripts/tailwind.css -w",
     "dev:server": "parcel --port 3000",
-    "build": "run-s build:dist prepare:dist",
-    "start": "run-p dev:router dev:css dev:server"
+    "build": "run-s build:router build:css build:dist prepare:dist copy-data",
+    "start": "run-p dev:router dev:css dev:server dev:api"
   },
   "keywords": [],
   "author": "Brama Udi<bramaudi.al@gmail.com>",
@@ -32,7 +35,7 @@
     "tailwindcss": "^2.2.15"
   },
   "dependencies": {
-    "solid-app-router": "^0.1.5",
+    "page": "^1.11.6",
     "solid-js": "^1.1.5"
   }
 }

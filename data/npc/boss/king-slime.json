@@ -1,0 +1,13 @@
+{
+	"title": "King Slime",
+	"damage": 40,
+	"maxhp": 2000,
+	"expert": {
+		"damage": 64,
+		"maxhp": 2800
+	},
+	"master": {
+		"damage": 96,
+		"maxhp": 3570
+	}
+}
