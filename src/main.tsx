@@ -1,22 +1,27 @@
-// @ts-ignore
-import Router from "../scripts/router" // <- auto-generated
+//@ts-ignore
 import "../scripts/tailwind.css" // <- auto-generated
 import { render } from "solid-js/web"
-import { onMount, createSignal } from "solid-js"
-import { fetchData } from "./api"
+import { createSignal, Component } from "solid-js"
+import PageJS from "page"
+import routes from "./routes"
+
+const Router = () => {
+	const [page, setPage] = createSignal<Component>()
+	const Page = (path, component) => {
+		PageJS(path, async () => {
+			const page = (await component).default
+			setPage(() => page)
+		})
+	}
+	Object.keys(routes).forEach(path => {
+		Page(path, routes[path])
+	})
+	PageJS({ hashbang: true })
+	return page
+}
 
 const App = () => {
-	const [data, setData] = createSignal()
-	onMount(async () => {
-		fetchData('/npc/boss/king-slime.json', setData)
-	})
-	return (
-		<>
-			<h1>{process.env.NODE_ENV}</h1>
-			{JSON.stringify(data())}
-			{Router()}
-		</>
-	)
+	return <>{Router()}</>
 }
 
 const $app = document.getElementById('app')
