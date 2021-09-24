@@ -1,4 +1,4 @@
 export default {
-	'/':			import('./screens/index'),
-	'/about': import('./screens/about'),
+	'/':				import('./screens/Home'),
+	'/item':		import('./screens/ItemList'),
 }
