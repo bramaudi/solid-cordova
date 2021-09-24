@@ -2,3 +2,4 @@ node_modules
 .parcel-cache
 dist
 src/routes.ts
+src/tailwind.css
