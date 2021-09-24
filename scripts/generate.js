@@ -4,7 +4,7 @@ const glob = require('glob')
 const fs = require('fs')
 
 const generateRouter = () => {
-	glob(`${resolve(__dirname)}/../src/pages/**/*.tsx`, (err, paths) => {
+	glob(`${resolve()}/src/pages/**/*.tsx`, (err, paths) => {
 		const routes = []
 		paths
 		.map(path => path.replace(`${resolve()}/src/pages/`, ''))
@@ -28,10 +28,10 @@ const generateRouter = () => {
 					path += fileNoExt.replace('index', '')
 					break;
 			}
-			routes.push(`\n{\n\tpath: '${path}',\n\tcomponent: lazy(() => import('./pages/${fileNoExt}'))\n}`)
+			routes.push(`\n{\n\tpath: '${path}',\n\tcomponent: lazy(() => import('../src/pages/${fileNoExt}'))\n}`)
 		})
 
-		fs.writeFileSync(`${resolve(__dirname)}/../src/routes.ts`, `import { lazy } from "solid-js"\nexport default [${routes}]`)
+		fs.writeFileSync(`${resolve()}/scripts/routes.ts`, `import { lazy } from "solid-js"\nexport default [${routes}]`)
 		console.log('Updated routes.ts')
 	})
 }
@@ -40,6 +40,6 @@ const generateRouter = () => {
 generateRouter()
 
 // Subscribe to events
-watcher.subscribe(`${resolve(__dirname)}/../src/pages`, () => {
+watcher.subscribe(`${resolve()}/src/pages`, () => {
 	generateRouter()
 })

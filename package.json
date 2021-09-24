@@ -6,10 +6,10 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "build:dist": "rm -rf dist && parcel build --no-source-maps --no-content-hash --public-url ./",
-    "build:css": "tailwindcss -o src/tailwind.css",
+    "build:css": "tailwindcss -o scripts/tailwind.css",
     "prepare:dist": "node scripts/build.js",
     "dev:router": "node scripts/generate.js",
-    "dev:css": "tailwindcss -o src/tailwind.css -w",
+    "dev:css": "tailwindcss -o scripts/tailwind.css -w",
     "dev:server": "parcel --port 3000",
     "build": "run-s build:dist prepare:dist",
     "start": "run-p dev:router dev:css dev:server"
