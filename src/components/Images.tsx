@@ -1,6 +1,6 @@
 import { fetchImages } from "../assets"
 
-const Assets = ({ src, type, ...rest }: {
+const Images = ({ src, type, ...rest }: {
 	type: string
 	src: string
 }) => {
@@ -13,4 +13,4 @@ const Assets = ({ src, type, ...rest }: {
 	)
 }
 
-export default Assets
+export default Images
