@@ -3,10 +3,11 @@
  * to serve `assets` folder as separate server
  */
 
+require('dotenv').config()
 const http = require('http')
 const fs = require('fs');
 const { resolve, extname } = require('path');
-const APP = 'http://localhost:3000'
+const { ASSETS_HOST } = process.env
 
 var server;
 var mime = {
@@ -23,9 +24,9 @@ server = http.createServer((req, res) => {
 	res.setHeader('Access-Control-Request-Method', '*');
 	res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
 	res.setHeader('Access-Control-Allow-Headers', '*');
-	console.log(req.url);
+	console.log(ASSETS_HOST + req.url);
 	if ( req.method === 'GET' ) {
-		const url = new URL(APP + req.url)
+		const url = new URL(ASSETS_HOST + req.url)
 		if (url.searchParams.get('data')) {
 			try {
 				const content = fs.readFileSync(
@@ -58,4 +59,7 @@ server = http.createServer((req, res) => {
 	}
 })
 
-server.listen(3001, () => console.log('Serving assets on port 3001 ...'))
+server.on('error', (err) => {
+	console.log(err);
+})
+server.listen(3001, '0.0.0.0', () => console.log('Serving assets on port 3001 ...'))

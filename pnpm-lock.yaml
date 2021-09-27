@@ -8,16 +8,20 @@ specifiers:
   '@parcel/watcher': ^2.0.0-alpha.11
   autoprefixer: ^10.3.5
   babel-preset-solid: ^1.1.5
+  dotenv: ^10.0.0
   glob: ^7.2.0
   npm-run-all: ^4.1.5
   page: ^1.11.6
   parcel: ^2.0.0-rc.0
   postcss: ^8.3.7
+  sidebarjs: ^9.0.0
   solid-js: ^1.1.5
   tailwindcss: ^2.2.15
 
 dependencies:
+  dotenv: 10.0.0
   page: 1.11.6
+  sidebarjs: 9.0.0
   solid-js: 1.1.5
 
 devDependencies:
@@ -2649,6 +2653,11 @@ packages:
   /dotenv-expand/5.1.0:
     resolution: {integrity: sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==}
     dev: true
+
+  /dotenv/10.0.0:
+    resolution: {integrity: sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==}
+    engines: {node: '>=10'}
+    dev: false
 
   /dotenv/7.0.0:
     resolution: {integrity: sha512-M3NhsLbV1i6HuGzBUH8vXrtxOk+tWmzWKDMbAVSUp3Zsjm7ywFeuwrUXhmhQyRK1q5B5GGy7hcXPbj3bnfZg2g==}
@@ -5462,6 +5471,11 @@ packages:
       get-intrinsic: 1.1.1
       object-inspect: 1.11.0
     dev: true
+
+  /sidebarjs/9.0.0:
+    resolution: {integrity: sha512-hS78YXFl9rpeMHoYM5Wsfa+/Zkh8fh7yrjq/OhST7YYmjeF+bP1jRXY6SRFGKQq8IJV1BhGhk5/jPZYKgNp7Yw==}
+    engines: {node: '>=12.7.0', npm: '>=6.10.0'}
+    dev: false
 
   /signal-exit/3.0.4:
     resolution: {integrity: sha512-rqYhcAnZ6d/vTPGghdrw7iumdcbXpsk1b8IG/rz+VWV51DM0p7XCtMoJ3qhPLIbp3tvyt3pKRbaaEMZYpHto8Q==}

@@ -1,4 +1,4 @@
-const LOCAL = 'http://localhost:3001'
+const { ASSETS_HOST } = process.env
 
 /**
  * fetch content inside `assets/data` folder
@@ -8,7 +8,7 @@ const LOCAL = 'http://localhost:3001'
 export const fetchData = (path: string, callback: Function) => {
 	const safePath = path.slice(0, 1) !== '/' ? `/${path}` : path
 	const request = new XMLHttpRequest();
-	const HOST = process.env.NODE_ENV === 'development' ? `${LOCAL}/?data=` : './assets/data'
+	const HOST = process.env.NODE_ENV === 'development' ? `${ASSETS_HOST}/?data=` : './assets/data'
 	request.overrideMimeType('application/json')
 	request.open("GET", HOST + safePath);
 	console.log('fetchData', HOST + safePath);
@@ -30,6 +30,6 @@ export const fetchData = (path: string, callback: Function) => {
  */
 export const fetchImages = (path: string) => {
 	const safePath = path.slice(0, 1) !== '/' ? `/${path}` : path
-	const HOST = process.env.NODE_ENV === 'development' ? `${LOCAL}/?images=` : './assets/images'
+	const HOST = process.env.NODE_ENV === 'development' ? `${ASSETS_HOST}/?images=` : './assets/images'
 	return HOST + safePath
 }

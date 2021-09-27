@@ -1,12 +1,15 @@
+import type { JSXElement } from "solid-js"
 //@ts-ignore
 import "../scripts/tailwind.css" // <- auto-generated
+import "sidebarjs/lib/sidebarjs.min.css"
 import { render } from "solid-js/web"
-import { createSignal, Component } from "solid-js"
 import PageJS from "page"
 import routes from "./routes"
+import { createSignal } from "solid-js"
+import Layout from "./components/layout"
 
 const Router = () => {
-	const [page, setPage] = createSignal<Component>()
+	const [page, setPage] = createSignal<() => JSXElement>()
 	const Page = (path, component) => {
 		PageJS(path, async () => {
 			const page = (await component).default
@@ -20,9 +23,5 @@ const Router = () => {
 	return page
 }
 
-const App = () => {
-	return <>{Router()}</>
-}
-
 const $app = document.getElementById('app')
-render(() => <App />, $app)
+render(() => <Layout view={Router} />, $app)

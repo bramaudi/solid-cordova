@@ -13,7 +13,7 @@
     "dev:assets": "node scripts/assets.js",
     "dev:router": "node scripts/router.js --watch",
     "dev:css": "tailwindcss -o scripts/tailwind.css -w",
-    "dev:server": "parcel --port 3000",
+    "dev:server": "parcel --host 0.0.0.0 --port 3000",
     "build": "run-s build:css build:dist prepare:dist copy-assets",
     "start": "run-p dev:css dev:server dev:assets"
   },
@@ -35,7 +35,9 @@
     "tailwindcss": "^2.2.15"
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
     "page": "^1.11.6",
+    "sidebarjs": "^9.0.0",
     "solid-js": "^1.1.5"
   }
 }
